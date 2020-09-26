@@ -4,6 +4,7 @@ import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 
 import type { MarkdownRemarkEdge } from '../types'
+import SEO from "../components/SEO"
 
 interface IndexProps {
   data: {
@@ -17,6 +18,7 @@ const IndexPage: React.FunctionComponent<IndexProps> = ({ data }) => {
   const { edges } = data.allMarkdownRemark
   return (
     <Layout>
+      <SEO title="Brain Index" />
       <div style={{
         margin: 'auto',
         textAlign: 'center',

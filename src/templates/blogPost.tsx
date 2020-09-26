@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 
 import { MarkdownRemark } from '../types'
+import SEO from '../components/SEO'
 
 type PostProps = {
     data: {
@@ -23,6 +24,8 @@ const Template: React.FunctionComponent<PostProps> = ({ data, pageContext }) => 
 
     return (
         <Layout next={next} prev={prev}>
+            <SEO title={markdownRemark.frontmatter.title}
+            description={markdownRemark.frontmatter.excerpt || markdownRemark.excerpt} />
             <div style={{
                 display: 'flex',
                 flexDirection: 'column',

@@ -3,6 +3,7 @@ import { graphql, Link } from 'gatsby'
 
 import Layout from '../components/Layout'
 import { MarkdownRemark } from '../types'
+import SEO from '../components/SEO'
 
 interface SingleTagProps {
     pageContext: {
@@ -16,6 +17,7 @@ const SingleTagTemplate: React.FunctionComponent<SingleTagProps> = ({ pageContex
     const { posts, tagName } = pageContext
     return (
         <Layout>
+            <SEO title={`Brain: ${tagName}`}/>
             <div style={{
                 display: 'flex',
                 flexDirection: 'column',

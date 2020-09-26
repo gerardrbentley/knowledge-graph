@@ -3,6 +3,7 @@ import { graphql, Link } from 'gatsby'
 
 import Layout from '../components/Layout'
 import { MarkdownRemark } from '../types';
+import SEO from '../components/SEO';
 
 interface AllTagsProps {
     pageContext: {
@@ -18,6 +19,7 @@ const AllTagsTemplate: FunctionComponent<AllTagsProps> = ({ pageContext }) => {
     const { tags, posts } = pageContext
     return (
         <Layout>
+            <SEO title="Brain Topic Tags"/>
             <div style={{
                 display: 'flex',
                 flexDirection: 'column',

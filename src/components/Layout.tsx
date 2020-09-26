@@ -53,6 +53,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ next, prev, children }) 
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
+                textAlign: 'center',
                 marginLeft: '1rem',
                 marginRight: '1rem',
                 width: '40%'

@@ -8,7 +8,7 @@ module.exports = {
   /* Your site config here */
   siteMetadata: {
     title: 'Brain Blog',
-    description: 'Notes from random topics, connected',
+    description: 'Notes from random topics, connected; Loosely modeled after Zettelkasten / Roam',
     author: 'Gerard R. Bentley',
     year: new Date().getFullYear(),
     social: {
