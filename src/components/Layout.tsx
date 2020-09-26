@@ -5,25 +5,26 @@ import { MarkdownRemark } from '../types'
 export interface LayoutProps {
     next?: MarkdownRemark
     prev?: MarkdownRemark
+}
+
+export interface PureLayoutProps {
+    data: {
+        site: {
+            siteMetadata: {
+                title: string
+                description: string
+                author: string
+                year: Date
+            }
+        }
+    }
+    next?: MarkdownRemark
+    prev?: MarkdownRemark
 
 }
 
-const Layout: React.FunctionComponent<LayoutProps> = ({ next, prev, children }) => {
-    const data = useStaticQuery(
-        graphql`
-            query {
-                site {
-                    siteMetadata {
-                        title
-                        description
-                        author
-                        year
-                    }
-                }
-            }
-        `
-    )
-    console.log({data})
+export const PureLayout: React.FunctionComponent<PureLayoutProps> = ({ data, next, prev, children }) => {
+    console.log({ data })
     const { title, description, author, year } = data.site.siteMetadata
     let header = (
         <div style={{
@@ -102,7 +103,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ next, prev, children }) 
                 textAlign: 'center'
             }}>
                 <span>
-                    © {year}, Built by {author} Using <a href="https://www.gatsbyjs.org">GatsbyJS</a>
+                    © {year.toString()}, Built by {author} Using <a href="https://www.gatsbyjs.org">GatsbyJS</a>
                 </span>
             </div>
             <div>
@@ -139,6 +140,25 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ next, prev, children }) 
             </footer>
         </div>
     )
+}
+
+export const Layout: React.FunctionComponent<LayoutProps> = (props) => {
+    const data = useStaticQuery(
+        graphql`
+            query {
+                site {
+                    siteMetadata {
+                        title
+                        description
+                        author
+                        year
+                    }
+                }
+            }
+        `
+    )
+
+    return <PureLayout {...props} data={data}></PureLayout>
 }
 
 export default Layout

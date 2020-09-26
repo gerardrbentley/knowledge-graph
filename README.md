@@ -11,6 +11,8 @@
 
 4. Typescript
 
+5. Testing and Code Coverage with Jest
+
 ## 🚀 Run Local
 
 1.  **Clone Repo**
@@ -67,6 +69,14 @@ Simple Markdown links for now:
 [Other Topic](/other_topic)
 ```
 Represents a link with "Other Topic" as clickable text that leads to the page `0.0.0.0:8000/other_topic`
+
+## Testing
+
+Calling the following will run Tests and a Code Coverage report for all source files
+
+```shell
+npm test
+```
 
 ## 🧐 What's inside?
 
