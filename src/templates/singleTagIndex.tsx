@@ -1,14 +1,21 @@
-import React from 'react'
+import * as React from 'react'
 import { graphql, Link } from 'gatsby'
 
-import Header from '../components/Header'
+import Layout from '../components/Layout'
+import { MarkdownRemark } from '../types'
 
-const SingleTagTemplate = ({ data, pageContext }) => {
+interface SingleTagProps {
+    pageContext: {
+        posts: Array<MarkdownRemark>
+        tagName: string
+    }
+}
+
+const SingleTagTemplate: React.FunctionComponent<SingleTagProps> = ({ pageContext }) => {
     console.log(pageContext)
     const { posts, tagName } = pageContext
     return (
-        <div>
-            <Header />
+        <Layout>
             <div style={{
                 display: 'flex',
                 flexDirection: 'column',
@@ -16,7 +23,7 @@ const SingleTagTemplate = ({ data, pageContext }) => {
                 fontFamily: 'sans-serif'
             }}>
                 <div>
-                    Posts about {`${tagName}`}
+                    Posts related to: {`${tagName}`}
                 </div>
                 <div>
                     <ul>
@@ -32,7 +39,7 @@ const SingleTagTemplate = ({ data, pageContext }) => {
                     </ul>
                 </div>
             </div>
-        </div>
+        </Layout>
     )
 }
 

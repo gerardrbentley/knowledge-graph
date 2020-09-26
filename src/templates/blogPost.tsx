@@ -1,17 +1,28 @@
-import React from 'react'
-import { graphql, Link } from 'gatsby'
+import * as React from 'react'
+import { graphql } from 'gatsby'
 
-import Header from '../components/Header'
+import Layout from '../components/Layout'
 
-const Template = ({ data, pageContext }) => {
+import { MarkdownRemark } from '../types'
+
+type PostProps = {
+    data: {
+        markdownRemark: MarkdownRemark
+    }
+    pageContext: {
+        next: MarkdownRemark
+        prev: MarkdownRemark
+    }
+}
+
+const Template: React.FunctionComponent<PostProps> = ({ data, pageContext }) => {
     const { next, prev } = pageContext
     const { markdownRemark } = data
     const title = markdownRemark.frontmatter.title
     const html = markdownRemark.html
 
     return (
-        <div>
-            <Header next={next} prev={prev} />
+        <Layout next={next} prev={prev}>
             <div style={{
                 display: 'flex',
                 flexDirection: 'column',
@@ -22,7 +33,7 @@ const Template = ({ data, pageContext }) => {
                 <div className='blogpost'
                     dangerouslySetInnerHTML={{ __html: html }} />
             </div>
-        </div>
+        </Layout>
     )
 }
 

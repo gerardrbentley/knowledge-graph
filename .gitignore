@@ -61,6 +61,9 @@ public
 # Mac files
 .DS_Store
 
+# VS Code files
+.vscode
+
 # Yarn
 yarn-error.log
 .pnp/

@@ -1,13 +1,22 @@
-import React from "react"
+import * as React from "react"
 import { Link, graphql } from 'gatsby'
 
-import Header from '../components/Header'
+import Layout from '../components/Layout'
 
-const Layout = ({data}) => {
-  const {edges} = data.allMarkdownRemark
+import type { MarkdownRemarkEdge } from '../types'
+
+interface IndexProps {
+  data: {
+    allMarkdownRemark: {
+      edges: [MarkdownRemarkEdge]
+    }
+  }
+}
+
+const IndexPage: React.FunctionComponent<IndexProps> = ({ data }) => {
+  const { edges } = data.allMarkdownRemark
   return (
-    <div>
-      <Header />
+    <Layout>
       <div style={{
         margin: 'auto',
         textAlign: 'center',
@@ -23,20 +32,20 @@ const Layout = ({data}) => {
         alignItems: 'center',
         fontFamily: 'sans-serif'
       }}>
-      {edges.map(edge => {
-        const {frontmatter} = edge.node
-        return (
-          <div key={frontmatter.path}
-          style={{marginBottom: '1rem'}}
-          >
-            <Link to={frontmatter.path}>
+        {edges.map((edge: MarkdownRemarkEdge) => {
+          const {frontmatter} = edge.node
+          return (
+            <div key={frontmatter.path}
+          style={{ marginBottom: '1rem' }}
+        >
+          <Link to={frontmatter.path}>
             {frontmatter.title}
-            </Link>
-            </div>
-        )
-      })}
+          </Link>
+        </div>
+          )
+        })}
       </div>
-    </div>
+    </Layout>
   )
 }
 
@@ -59,4 +68,4 @@ export const query = graphql`
 `
 
 
-export default Layout
+export default IndexPage

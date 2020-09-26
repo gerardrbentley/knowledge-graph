@@ -1,14 +1,23 @@
-import React from 'react'
+import React, { FunctionComponent } from 'react'
 import { graphql, Link } from 'gatsby'
 
-import Header from '../components/Header'
+import Layout from '../components/Layout'
+import { MarkdownRemark } from '../types';
 
-const AllTagsTemplate = ({ data, pageContext }) => {
+interface AllTagsProps {
+    pageContext: {
+        posts: {
+            [key: string]: [MarkdownRemark]
+        }
+        tags: Array<string>
+    }
+}
+
+const AllTagsTemplate: FunctionComponent<AllTagsProps> = ({ pageContext }) => {
     console.log(pageContext)
     const { tags, posts } = pageContext
     return (
-        <div>
-            <Header />
+        <Layout>
             <div style={{
                 display: 'flex',
                 flexDirection: 'column',
@@ -31,7 +40,7 @@ const AllTagsTemplate = ({ data, pageContext }) => {
                     </ul>
                 </div>
             </div>
-        </div>
+            </Layout>
     )
 }
 
