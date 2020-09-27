@@ -72,10 +72,20 @@ Represents a link with "Other Topic" as clickable text that leads to the page `0
 
 ## Testing
 
-Calling the following will run Tests and a Code Coverage report for all source files
+Calling the following will run Unit Tests and a Code Coverage report for all source files
 
 ```shell
-npm test
+npm run test
+```
+
+Calling the following will run End to End (e2e) Tests with Cypress
+
+```shell
+docker-compose run e2e-electron
+# or
+docker-compose run e2e-chrome
+# or
+docker-compose run e2e-firefox
 ```
 
 ## 🧐 What's inside?
