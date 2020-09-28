@@ -6,7 +6,7 @@ import Layout from '../components/Layout'
 import { MarkdownRemark } from '../types'
 import SEO from '../components/SEO'
 
-type PostProps = {
+export type PostProps = {
     data: {
         markdownRemark: MarkdownRemark
     }
@@ -21,21 +21,17 @@ const Template: React.FunctionComponent<PostProps> = ({ data, pageContext }) => 
     const { markdownRemark } = data
     const title = markdownRemark.frontmatter.title
     const html = markdownRemark.html
-
+    const description = markdownRemark.frontmatter.excerpt || markdownRemark.excerpt
     return (
         <Layout next={next} prev={prev}>
-            <SEO title={markdownRemark.frontmatter.title}
-            description={markdownRemark.frontmatter.excerpt || markdownRemark.excerpt} />
-            <div style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                fontFamily: 'sans-serif'
-            }}>
-                <h1>{title}</h1>
-                <div className='blogpost'
-                    dangerouslySetInnerHTML={{ __html: html }} />
-            </div>
+            <SEO title={title}
+                description={description} />
+            <h1 style={{
+                textAlign: 'center'
+            }}>{title}</h1>
+            <div className='blogpost'
+                dangerouslySetInnerHTML={{ __html: html }} />
+
         </Layout>
     )
 }

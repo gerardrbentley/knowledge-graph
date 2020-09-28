@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { graphql, Link } from 'gatsby'
+import { Link } from 'gatsby'
 
 import Layout from '../components/Layout'
 import { MarkdownRemark } from '../types'
@@ -13,33 +13,25 @@ interface SingleTagProps {
 }
 
 const SingleTagTemplate: React.FunctionComponent<SingleTagProps> = ({ pageContext }) => {
-    console.log(pageContext)
     const { posts, tagName } = pageContext
     return (
         <Layout>
-            <SEO title={`Brain: ${tagName}`}/>
-            <div style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                fontFamily: 'sans-serif'
-            }}>
-                <div>
-                    Posts related to: {`${tagName}`}
-                </div>
-                <div>
-                    <ul>
-                        {posts.map((post, index) => {
-                            return (
-                                <li key={index}>
-                                    <Link to={post.frontmatter.path}>
-                                        {post.frontmatter.title}
-                                    </Link>
-                                </li>
-                            )
-                        })}
-                    </ul>
-                </div>
+            <SEO title={`${tagName}`} />
+            <h1>
+                Posts related to: {`${tagName}`}
+            </h1>
+            <div>
+                <ul>
+                    {posts.map((post, index) => {
+                        return (
+                            <li key={index}>
+                                <Link to={post.frontmatter.path}>
+                                    {post.frontmatter.title}
+                                </Link>
+                            </li>
+                        )
+                    })}
+                </ul>
             </div>
         </Layout>
     )

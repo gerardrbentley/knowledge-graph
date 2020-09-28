@@ -9,7 +9,7 @@ import SEO from "../components/SEO"
 interface IndexProps {
   data: {
     allMarkdownRemark: {
-      edges: [MarkdownRemarkEdge]
+      edges: Array<MarkdownRemarkEdge>
     }
   }
 }
