@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
-import { MarkdownRemark } from '../types'
+import { MarkdownRemark, SiteMetadataQuery } from '../types'
 
 export interface LayoutProps {
     next?: MarkdownRemark
@@ -8,19 +8,9 @@ export interface LayoutProps {
 }
 
 export interface PureLayoutProps {
-    data: {
-        site: {
-            siteMetadata: {
-                title: string
-                description: string
-                author: string
-                year: Date
-            }
-        }
-    }
+    data: SiteMetadataQuery
     next?: MarkdownRemark
     prev?: MarkdownRemark
-
 }
 
 export const PureLayout: React.FunctionComponent<PureLayoutProps> = ({ data, next, prev, children }) => {
@@ -103,7 +93,7 @@ export const PureLayout: React.FunctionComponent<PureLayoutProps> = ({ data, nex
                 textAlign: 'center'
             }}>
                 <span>
-                    © {year.toString()}, Built by {author} Using <a href="https://www.gatsbyjs.org">GatsbyJS</a>
+                    © {year}, Built by {author} Using <a href="https://www.gatsbyjs.org">GatsbyJS</a>
                 </span>
             </div>
             <div>
@@ -117,7 +107,7 @@ export const PureLayout: React.FunctionComponent<PureLayoutProps> = ({ data, nex
             style={{
                 marginLeft: 'auto',
                 marginRight: 'auto',
-                maxWidth: '768px',
+                width: '90%',
             }}
         >
             <header>
@@ -125,12 +115,11 @@ export const PureLayout: React.FunctionComponent<PureLayoutProps> = ({ data, nex
             </header>
             <hr></hr>
             <main style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
                 marginLeft: 'auto',
                 marginRight: 'auto',
-                width: '85%',
+                textAlign: 'left',
+                width: '90%',
+                overflow: 'auto'
             }}>
                 {children}
             </main>

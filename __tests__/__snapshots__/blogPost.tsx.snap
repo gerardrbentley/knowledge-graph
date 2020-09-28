@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Blog Page renders successfully 1`] = `
+<Layout
+  next={
+    Object {
+      "excerpt": "test",
+      "frontmatter": Object {
+        "date": 2020-09-25T00:00:00.000Z,
+        "excerpt": "Notes on Javascript",
+        "path": "/javascript",
+        "tags": Array [
+          "Javascript",
+          "Backend",
+          "Frontend",
+          "Web",
+        ],
+        "title": "Javascript",
+      },
+      "html": "<p>Javascript runs in the Browser and can control elements on an HTML page, along with fetching data from other website's API's.</p>
+<p>Makes it a popular tool for <a href=\\"/frontend\\">Frontend Dev</a> work.</p>
+<p>It can also run in a Backend server via <a href=\\"/node\\">Node</a></p>",
+    }
+  }
+  prev={
+    Object {
+      "excerpt": "test",
+      "frontmatter": Object {
+        "date": 2020-09-25T00:00:00.000Z,
+        "excerpt": "Notes on Javascript",
+        "path": "/javascript",
+        "tags": Array [
+          "Javascript",
+          "Backend",
+          "Frontend",
+          "Web",
+        ],
+        "title": "Javascript",
+      },
+      "html": "<p>Javascript runs in the Browser and can control elements on an HTML page, along with fetching data from other website's API's.</p>
+<p>Makes it a popular tool for <a href=\\"/frontend\\">Frontend Dev</a> work.</p>
+<p>It can also run in a Backend server via <a href=\\"/node\\">Node</a></p>",
+    }
+  }
+>
+  <SEO
+    description="Notes on Javascript"
+    title="Javascript"
+  />
+  <h1>
+    Javascript
+  </h1>
+  <div
+    className="blogpost"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "<p>Javascript runs in the Browser and can control elements on an HTML page, along with fetching data from other website's API's.</p>
+<p>Makes it a popular tool for <a href=\\"/frontend\\">Frontend Dev</a> work.</p>
+<p>It can also run in a Backend server via <a href=\\"/node\\">Node</a></p>",
+      }
+    }
+  />
+</Layout>
+`;

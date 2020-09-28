@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Single Tag Index Page renders successfully 1`] = `
+<Layout>
+  <SEO
+    title="Brain Index"
+  />
+  <div
+    style={
+      Object {
+        "fontFamily": "sans-serif",
+        "margin": "auto",
+        "marginBottom": "1rem",
+        "textAlign": "center",
+      }
+    }
+  >
+    <mockConstructor
+      to="/tags"
+    >
+      Browse by Tag
+    </mockConstructor>
+  </div>
+  <hr />
+  <div
+    style={
+      Object {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "column",
+        "fontFamily": "sans-serif",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "marginBottom": "1rem",
+        }
+      }
+    >
+      <mockConstructor
+        to="/javascript"
+      >
+        Javascript
+      </mockConstructor>
+    </div>
+    <div
+      style={
+        Object {
+          "marginBottom": "1rem",
+        }
+      }
+    >
+      <mockConstructor
+        to="/javascript"
+      >
+        Javascript
+      </mockConstructor>
+    </div>
+    <div
+      style={
+        Object {
+          "marginBottom": "1rem",
+        }
+      }
+    >
+      <mockConstructor
+        to="/javascript"
+      >
+        Javascript
+      </mockConstructor>
+    </div>
+  </div>
+</Layout>
+`;

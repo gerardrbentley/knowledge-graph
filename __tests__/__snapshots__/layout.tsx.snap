@@ -1,6 +1,208 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Layout renders correctly 1`] = `
+exports[`Layout renders correctly with next and prev 1`] = `
+<div
+  style={
+    Object {
+      "marginLeft": "auto",
+      "marginRight": "auto",
+      "maxWidth": "768px",
+    }
+  }
+>
+  <header>
+    <div
+      style={
+        Object {
+          "alignItems": "center",
+          "display": "flex",
+          "fontFamily": "sans-serif",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <div
+        style={
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "flexDirection": "column",
+            "marginLeft": "1rem",
+            "marginRight": "1rem",
+            "width": "30%",
+          }
+        }
+      >
+        <div
+          style={
+            Object {
+              "marginBottom": "1rem",
+            }
+          }
+        >
+          <a
+            href="/"
+          >
+            Index Page
+          </a>
+        </div>
+        <div>
+          <a
+            href="/javascript"
+          >
+            Prev (
+            Javascript
+            )
+          </a>
+        </div>
+      </div>
+      <div
+        style={
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "flexDirection": "column",
+            "marginLeft": "1rem",
+            "marginRight": "1rem",
+            "textAlign": "center",
+            "width": "40%",
+          }
+        }
+      >
+        <h2
+          style={
+            Object {
+              "marginBottom": ".3rem",
+            }
+          }
+        >
+          Brain Blog
+        </h2>
+        <p
+          style={
+            Object {
+              "opacity": 0.8,
+            }
+          }
+        >
+          Notes from random topics, connected; Loosely modeled after Zettelkasten / Roam
+        </p>
+      </div>
+      <div
+        style={
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "flexDirection": "column",
+            "marginLeft": "1rem",
+            "marginRight": "1rem",
+            "width": "30%",
+          }
+        }
+      >
+        <div
+          style={
+            Object {
+              "marginBottom": "1rem",
+            }
+          }
+        >
+          <a
+            href="/#"
+          >
+            Other Link
+          </a>
+        </div>
+        <div>
+          <a
+            href="/javascript"
+          >
+            Next (
+            Javascript
+            )
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <hr />
+  <main
+    style={
+      Object {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "column",
+        "marginLeft": "auto",
+        "marginRight": "auto",
+        "width": "85%",
+      }
+    }
+  >
+     
+  </main>
+  <hr />
+  <footer>
+    <div
+      style={
+        Object {
+          "alignItems": "center",
+          "display": "flex",
+          "fontFamily": "sans-serif",
+          "justifyContent": "center",
+          "marginBottom": "3rem",
+        }
+      }
+    >
+      <div>
+        <a
+          href="/javascript"
+        >
+          Prev (
+          Javascript
+          )
+        </a>
+      </div>
+      <div
+        style={
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "flexDirection": "column",
+            "marginLeft": "1rem",
+            "marginRight": "1rem",
+            "textAlign": "center",
+            "width": "40%",
+          }
+        }
+      >
+        <span>
+          © 
+          2020
+          , Built by 
+          Gerard R. Bentley
+           Using 
+          <a
+            href="https://www.gatsbyjs.org"
+          >
+            GatsbyJS
+          </a>
+        </span>
+      </div>
+      <div>
+        <a
+          href="/javascript"
+        >
+          Next (
+          Javascript
+          )
+        </a>
+      </div>
+    </div>
+  </footer>
+</div>
+`;
+
+exports[`Layout renders correctly without next or prev 1`] = `
 <div
   style={
     Object {
@@ -153,7 +355,7 @@ exports[`Layout renders correctly 1`] = `
       >
         <span>
           © 
-          Wed Dec 31 1969 19:00:02 GMT-0500 (Eastern Standard Time)
+          2020
           , Built by 
           Gerard R. Bentley
            Using 

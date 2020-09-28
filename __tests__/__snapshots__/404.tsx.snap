@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`404 Page renders successfully 1`] = `
+<Layout>
+  <SEO
+    title="404: Not Found"
+  />
+  <h1>
+    Not Found
+  </h1>
+  <p>
+    Sorry, the link you followed can't be found
+  </p>
+</Layout>
+`;

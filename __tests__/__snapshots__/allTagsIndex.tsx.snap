@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Single Tag Index Page renders successfully 1`] = `
+<Layout>
+  <SEO
+    title="Topic Tags"
+  />
+  <div>
+    <ul>
+      <li>
+        <mockConstructor
+          to="Web"
+        >
+          Web
+        </mockConstructor>
+        <span
+          style={
+            Object {
+              "paddingLeft": "2rem",
+            }
+          }
+        >
+          3
+        </span>
+      </li>
+      <li>
+        <mockConstructor
+          to="Frontend"
+        >
+          Frontend
+        </mockConstructor>
+        <span
+          style={
+            Object {
+              "paddingLeft": "2rem",
+            }
+          }
+        >
+          3
+        </span>
+      </li>
+    </ul>
+  </div>
+</Layout>
+`;

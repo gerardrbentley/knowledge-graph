@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Single Tag Index Page renders successfully 1`] = `
+<Layout>
+  <SEO
+    title="Web"
+  />
+  <h1>
+    Posts related to: 
+    Web
+  </h1>
+  <div>
+    <ul>
+      <li>
+        <mockConstructor
+          to="/javascript"
+        >
+          Javascript
+        </mockConstructor>
+      </li>
+      <li>
+        <mockConstructor
+          to="/javascript"
+        >
+          Javascript
+        </mockConstructor>
+      </li>
+      <li>
+        <mockConstructor
+          to="/javascript"
+        >
+          Javascript
+        </mockConstructor>
+      </li>
+    </ul>
+  </div>
+</Layout>
+`;

@@ -1,6 +1,16 @@
 import * as React from 'react'
 import Helmet from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
+import { SiteMetadataQuery } from '../types'
+
+
+interface PureSEOProps {
+    sitedata: SiteMetadataQuery
+    description?: string
+    lang?: string
+    meta?: []
+    title: string
+}
 
 interface SEOProps {
     description?: string
@@ -9,22 +19,9 @@ interface SEOProps {
     title: string
 }
 
-const SEO: React.FunctionComponent<SEOProps> = ({ description, lang, meta, title }) => {
-    const { site } = useStaticQuery(
-        graphql`
-            query {
-                site {
-                    siteMetadata {
-                        title
-                        description
-                        author
-                    }
-                }
-            }
-        `
-    )
+export const PureSEO: React.FunctionComponent<PureSEOProps> = ({sitedata, description, lang, meta, title}) => {
 
-    const metaDescription = description || site.siteMetadata.description
+    const metaDescription = description || sitedata.site.siteMetadata.description
 
     return (
         <Helmet
@@ -32,7 +29,7 @@ const SEO: React.FunctionComponent<SEOProps> = ({ description, lang, meta, title
                 lang,
             }}
             title={title}
-            titleTemplate={`%s | ${site.siteMetadata.title}`}
+            titleTemplate={`%s | ${sitedata.site.siteMetadata.title}`}
             meta={[
                 {
                     name: `description`,
@@ -56,7 +53,7 @@ const SEO: React.FunctionComponent<SEOProps> = ({ description, lang, meta, title
                 },
                 {
                     name: `twitter:creator`,
-                    content: site.siteMetadata.author,
+                    content: sitedata.site.siteMetadata.author,
                 },
                 {
                     name: `twitter:title`,
@@ -69,6 +66,24 @@ const SEO: React.FunctionComponent<SEOProps> = ({ description, lang, meta, title
             ].concat(meta || [])}
             />
     )
+}
+
+const SEO: React.FunctionComponent<SEOProps> = (props) => {
+    const site = useStaticQuery(
+        graphql`
+            query {
+                site {
+                    siteMetadata {
+                        title
+                        description
+                        author
+                    }
+                }
+            }
+        `
+    )
+
+    return <PureSEO {...props} sitedata={ site }/>
 }
 
 export default SEO
