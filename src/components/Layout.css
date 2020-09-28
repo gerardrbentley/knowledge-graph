@@ -1,0 +1,254 @@
+:root {
+  /* Solarized Color Palette */
+  --base03: #002b36;
+  --base02: #073642;
+  --base01: #586e75;
+  --base00: #657b83;
+  --base0: #839496;
+  --base1: #93a1a1;
+  --base2: #eee8d5;
+  --base3: #fdf6e3;
+  --yellow: #b58900;
+  --orange: #cb4b16;
+  --red: #dc322f;
+  --magenta: #d33682;
+  --violet: #6c71c4;
+  --blue: #268bd2;
+  --cyan: #2aa198;
+  --green: #859900;
+}
+
+.theme-container {
+  /* Make the light theme the default */
+  --text-emphasis: var(--base01);
+  --text-primary: var(--base00);
+  --text-secondary: var(--base1);
+  --background: var(--base3);
+  --soft-background: var(--base2);
+  --swap-background: var(--base03);
+
+  --focus: var(--blue);
+  --interactive: var(--magenta);
+
+  color: var(--text-primary);
+  background-color: var(--soft-background);
+  width: 100%;
+  height: 100%;
+}
+
+.dark-mode-checkbox:checked ~ .theme-container {
+  /* Override the default theme */
+  --text-emphasis: var(--base1);
+  --text-primary: var(--base0);
+  --text-secondary: var(--base01);
+  --background: var(--base02);
+  --soft-background: var(--base03);
+  --swap-background: var(--base3);
+
+  --focus: var(--blue);
+  --interactive: var(--magenta);
+}
+
+.dark-mode-label {
+  margin-bottom: 1em;
+}
+
+:focus,
+.dark-mode-checkbox:focus ~ .theme-container .dark-mode-label {
+  outline: 2px solid var(--focus);
+}
+
+.dark-mode-checkbox:checked ~ .theme-container .dark-mode-label .slider {
+  background-color: #2196F3;
+}
+
+.dark-mode-checkbox:checked ~ .theme-container .dark-mode-label .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+.dark-mode-checkbox:checked ~ .theme-container .dark-mode-label .slider:before {
+  -webkit-transform: translateX(22px);
+  -ms-transform: translateX(22px);
+  transform: translateX(22px);
+}
+
+aside,
+details,
+figcaption,
+figure,
+hgroup,
+nav,
+section,
+summary {
+  display: block;
+}
+audio,
+canvas,
+video {
+  display: inline-block;
+}
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+[hidden] {
+  display: none;
+}
+html {
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  background-color: var(--base03);
+}
+body {
+  margin: 0 auto;
+}
+.header {
+  color: var(--text-emphasis);
+  border-bottom: var(--text-emphasis);
+  border-bottom-style: solid;
+  margin-bottom: 0.7rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+.main {
+  width: 85%;
+  max-width: 1024px;
+  margin: 0 auto 2rem;
+  padding: 0.7rem;
+  background-color: var(--background);
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.1), -10px 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+.footer {
+  color: var(--text-emphasis);
+  padding: 1rem 2rem;
+  border-top: var(--text-emphasis);
+  border-top-style: solid;
+  box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+a {
+  color: var(--cyan);
+}
+a:focus {
+  outline: thin dotted;
+  font-size: medium;
+  font-weight: 600;
+  color: var(--magenta) !important;
+  transition: all 0.3s;
+}
+a:active,
+a:hover {
+    outline: 0;
+    color: var(--magenta) !important;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+a:visited {
+  color: var(--magenta);
+}
+
+h1 {
+  color: var(--violet);
+  margin-bottom: 0.3rem;
+}
+h2 {
+  color: var(--blue);
+}
+h3,
+h4,
+h5,
+h6 {
+  color: var(--cyan);
+}
+
+hr {
+  color: var(--text-emphasis);
+}
+
+table, th, td {
+  padding: 4px;
+  border: 1px solid var(--text-emphasis);
+}
+
+code {
+  background-color: var(--swap-background);
+  padding: 2px;
+}
+pre {
+  background-color: var(--swap-background);
+  color: #657b83;
+  border: 1pt solid var(--text-emphasis);
+  padding: 1em;
+  box-shadow: 5pt 5pt 8pt #eee8d5;
+}
+pre code {
+  background-color: var(--swap-background);
+}
+
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 38px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/*
+visibility-hidden utility class
+
+Source: https://github.com/h5bp/html5-boilerplate
+
+Hide only visually, but have it available for screen readers:
+https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+*/
+.visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  white-space: nowrap; /* 1. */
+}
+
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 38px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 30px;
+  width: 30px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}

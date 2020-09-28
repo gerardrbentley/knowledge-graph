@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import { MarkdownRemark, SiteMetadataQuery } from '../types'
+import "./Layout.css"
 
 export interface LayoutProps {
     next?: MarkdownRemark
@@ -14,7 +15,16 @@ export interface PureLayoutProps {
 }
 
 export const PureLayout: React.FunctionComponent<PureLayoutProps> = ({ data, next, prev, children }) => {
-    console.log({ data })
+    const [darkMode, setDarkMode] = React.useState(localStorage.getItem('use-dark-mode') || '')
+
+    React.useEffect(() => {
+        localStorage.setItem('use-dark-mode', darkMode);
+    }, [darkMode])
+
+    const toggleDarkMode: ((event: React.ChangeEvent<HTMLInputElement>) => void) = (event) => {
+        const newVal = event.target.checked
+        setDarkMode(String(newVal))}
+
     const { title, description, author, year } = data.site.siteMetadata
     let header = (
         <div style={{
@@ -49,8 +59,8 @@ export const PureLayout: React.FunctionComponent<PureLayoutProps> = ({ data, nex
                 marginRight: '1rem',
                 width: '40%'
             }}>
-                <h2 style={{ marginBottom: '.3rem' }}>{title}</h2>
-                <p style={{ opacity: 0.8 }}>{description}</p>
+                <h1>{title}</h1>
+                <p style={{ opacity: 0.9 }}>{description}</p>
             </div>
             <div style={{
                 display: 'flex',
@@ -58,7 +68,7 @@ export const PureLayout: React.FunctionComponent<PureLayoutProps> = ({ data, nex
                 alignItems: 'center',
                 marginLeft: '1rem',
                 marginRight: '1rem',
-                width: '30%'
+                width: '20%'
             }}>
                 <div style={{
                     marginBottom: '1rem'
@@ -69,6 +79,15 @@ export const PureLayout: React.FunctionComponent<PureLayoutProps> = ({ data, nex
                     {next && <Link to={next.frontmatter.path}>Next ({next.frontmatter.title})</Link>}
                 </div>
             </div>
+            <div style={{
+                width: '10%',
+            }}>
+                <span className="block" style={{
+                    marginLeft: 'auto',
+                    marginRight: 'auto',
+                }}>Dark?</span>
+                <label className="dark-mode-label switch" htmlFor="dark-mode"><span className="slider round"></span></label>
+            </div>
         </div>
     )
 
@@ -77,8 +96,6 @@ export const PureLayout: React.FunctionComponent<PureLayoutProps> = ({ data, nex
             display: 'flex',
             alignItems: 'center',
             justifyContent: "center",
-            fontFamily: 'sans-serif',
-            marginBottom: '3rem'
         }}>
             <div>
                 {prev && <Link to={prev.frontmatter.path}>Prev ({prev.frontmatter.title})</Link>}
@@ -103,30 +120,20 @@ export const PureLayout: React.FunctionComponent<PureLayoutProps> = ({ data, nex
     )
 
     return (
-        <div
-            style={{
-                marginLeft: 'auto',
-                marginRight: 'auto',
-                width: '90%',
-            }}
-        >
-            <header>
-                {header}
-            </header>
-            <hr></hr>
-            <main style={{
-                marginLeft: 'auto',
-                marginRight: 'auto',
-                textAlign: 'left',
-                width: '90%',
-                overflow: 'auto'
-            }}>
-                {children}
-            </main>
-            <hr></hr>
-            <footer>
-                {footer}
-            </footer>
+        <div>
+            <input id="dark-mode" className="dark-mode-checkbox visually-hidden" type="checkbox" onChange={toggleDarkMode} defaultChecked={(localStorage.getItem('use-dark-mode') === 'true') || false}/>
+
+            <div className="layout theme-container">
+                <header className="header">
+                    {header}
+                </header>
+                <main className="main">
+                    {children}
+                </main>
+                <footer className="footer">
+                    {footer}
+                </footer>
+            </div>
         </div>
     )
 }
@@ -135,9 +142,9 @@ export const Layout: React.FunctionComponent<LayoutProps> = (props) => {
     const data = useStaticQuery(
         graphql`
             query {
-                site {
+                    site {
                     siteMetadata {
-                        title
+                    title
                         description
                         author
                         year
