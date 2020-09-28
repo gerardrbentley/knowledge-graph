@@ -47,7 +47,13 @@ exports[`Blog Page renders successfully 1`] = `
     description="Notes on Javascript"
     title="Javascript"
   />
-  <h1>
+  <h1
+    style={
+      Object {
+        "textAlign": "center",
+      }
+    }
+  >
     Javascript
   </h1>
   <div
