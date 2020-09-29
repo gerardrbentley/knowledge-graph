@@ -57,23 +57,23 @@ orbs:
 workflows:
     heroku_deploy:
         jobs:
-            - unit-test
+            - unit-test:
                 filters:
                     branches:
                         only: main
-            - build
+            - build:
                 requires:
                     - unit-test
                 filters:
                     branches:
                         only: main
-            - test-chrome
+            - test-chrome:
                 requires:
                     - build
                 filters:
                     branches:
                         only: main
-            - heroku/deploy-via-git
+            - heroku/deploy-via-git:
                 requires:
                     - test-chrome
                 filters:
