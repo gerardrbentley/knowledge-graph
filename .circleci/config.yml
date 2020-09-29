@@ -23,7 +23,7 @@ jobs:
                 name: Build Docker Image
                 command: |
                     echo 'export TAG=0.1.${CIRCLE_BUILD_NUM}' >> $BASH_ENV
-                    docker build -t gerardrbentley/gar-brain:$TAG .
+                    docker build -t gerardrbentley/gar-brain:${TAG} .
                 # command: |
                 #     echo 'export TAG=0.1.${CIRCLE_BUILD_NUM}' >> $BASH_ENV
                 #     docker build -t gerardrbentley/gar-brain:$TAG .
