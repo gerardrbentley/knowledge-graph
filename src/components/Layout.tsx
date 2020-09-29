@@ -15,15 +15,28 @@ export interface PureLayoutProps {
 }
 
 export const PureLayout: React.FunctionComponent<PureLayoutProps> = ({ data, next, prev, children }) => {
-    const [darkMode, setDarkMode] = React.useState(localStorage.getItem('use-dark-mode') || '')
+    let toggleDarkMode: ((event: React.ChangeEvent<HTMLInputElement>) => void) = (event) => console.log('default', event)
+    let defaultDark: boolean = false;
+    if (typeof window !== 'undefined') {
+        defaultDark = (localStorage.getItem('use-dark-mode') === 'true') || false
+        const [darkMode, setDarkMode] = React.useState(localStorage.getItem('use-dark-mode') || 'false')
 
-    React.useEffect(() => {
-        localStorage.setItem('use-dark-mode', darkMode);
-    }, [darkMode])
+        React.useEffect(() => {
+            localStorage.setItem('use-dark-mode', darkMode);
+        }, [darkMode])
 
-    const toggleDarkMode: ((event: React.ChangeEvent<HTMLInputElement>) => void) = (event) => {
-        const newVal = event.target.checked
-        setDarkMode(String(newVal))}
+        toggleDarkMode = (event) => {
+            const newVal = event.target.checked
+            if (newVal) {
+                event.target.classList.add('use-dark-mode')
+                document.querySelector('.dark-mode-label')?.classList.add('use-dark-mode')
+            } else {
+                event.target.classList.remove('use-dark-mode')
+                document.querySelector('.dark-mode-label')?.classList.remove('use-dark-mode')
+            }
+            setDarkMode(String(newVal))
+        }
+    }
 
     const { title, description, author, year } = data.site.siteMetadata
     let header = (
@@ -44,10 +57,10 @@ export const PureLayout: React.FunctionComponent<PureLayoutProps> = ({ data, nex
                 <div style={{
                     marginBottom: '1rem'
                 }}>
-                    <Link to='/'>Index Page</Link>
+                    <Link data-testid="index-link" to='/'>Index Page</Link>
                 </div>
                 <div>
-                    {prev && <Link to={prev.frontmatter.path}>Prev ({prev.frontmatter.title})</Link>}
+                    {prev && <Link data-testid="prev-link" to={prev.frontmatter.path}>Prev ({prev.frontmatter.title})</Link>}
                 </div>
             </div>
             <div style={{
@@ -73,16 +86,16 @@ export const PureLayout: React.FunctionComponent<PureLayoutProps> = ({ data, nex
                 <div style={{
                     marginBottom: '1rem'
                 }}>
-                    <a href="/#">Other Link</a>
+                    <a data-testid="other-link" href="/#">Other Link</a>
                 </div>
                 <div>
-                    {next && <Link to={next.frontmatter.path}>Next ({next.frontmatter.title})</Link>}
+                    {next && <Link data-testid="next-link" to={next.frontmatter.path}>Next ({next.frontmatter.title})</Link>}
                 </div>
             </div>
             <div style={{
                 width: '10%',
             }}>
-                <label className="dark-mode-label switch" htmlFor="dark-mode"><span className="slider round"></span></label>
+                <label data-testid="dark-mode-switch" className="dark-mode-label switch" htmlFor="dark-mode"><span className="slider round"></span></label>
             </div>
         </div>
     )
@@ -117,9 +130,9 @@ export const PureLayout: React.FunctionComponent<PureLayoutProps> = ({ data, nex
 
     return (
         <div>
-            <input id="dark-mode" className="dark-mode-checkbox visually-hidden" type="checkbox" onChange={toggleDarkMode} defaultChecked={(localStorage.getItem('use-dark-mode') === 'true') || false}/>
+            <input data-testid="dark-mode-input" id="dark-mode" className="dark-mode-checkbox visually-hidden" type="checkbox" onChange={toggleDarkMode} defaultChecked={defaultDark} />
 
-            <div className="layout theme-container">
+            <div className="layout theme-container" data-testid="theme">
                 <header className="header">
                     {header}
                 </header>

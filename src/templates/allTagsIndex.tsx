@@ -25,7 +25,7 @@ const AllTagsTemplate: FunctionComponent<AllTagsProps> = ({ pageContext }) => {
                     {tags.map((tagName, index) => {
                         return (
                             <li key={index}>
-                                <Link to={`${tagName}`}>
+                                <Link className="tag-link" to={`${tagName.replace(/\s+/g, '_').toLowerCase()}`}>
                                     {tagName}
                                 </Link>
 

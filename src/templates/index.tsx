@@ -25,7 +25,7 @@ const IndexPage: React.FunctionComponent<IndexProps> = ({ data }) => {
         marginBottom: '1rem',
         fontFamily: 'sans-serif'
       }}>
-        <Link to={'/tags'}>Browse by Tag</Link>
+        <Link className="tag-link" data-testid="browse-by-tag" to={'/tags'}>Browse by Tag</Link>
       </div>
       <hr />
       <div style={{
@@ -34,13 +34,13 @@ const IndexPage: React.FunctionComponent<IndexProps> = ({ data }) => {
         alignItems: 'center',
         fontFamily: 'sans-serif'
       }}>
-        {edges.map((edge: MarkdownRemarkEdge) => {
+        {edges.map((edge: MarkdownRemarkEdge, index) => {
           const {frontmatter} = edge.node
           return (
             <div key={frontmatter.path}
           style={{ marginBottom: '1rem' }}
         >
-          <Link to={frontmatter.path}>
+          <Link data-testid={`blog-post-${index}`} className="blog-link" to={frontmatter.path}>
             {frontmatter.title}
           </Link>
         </div>

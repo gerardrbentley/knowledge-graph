@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 
 import Layout from '../components/Layout'
 
@@ -20,8 +20,10 @@ const Template: React.FunctionComponent<PostProps> = ({ data, pageContext }) => 
     const { next, prev } = pageContext
     const { markdownRemark } = data
     const title = markdownRemark.frontmatter.title
+    const tags = markdownRemark.frontmatter.tags
     const html = markdownRemark.html
     const description = markdownRemark.frontmatter.excerpt || markdownRemark.excerpt
+    console.log(tags)
     return (
         <Layout next={next} prev={prev}>
             <SEO title={title}
@@ -29,6 +31,25 @@ const Template: React.FunctionComponent<PostProps> = ({ data, pageContext }) => 
             <h1 style={{
                 textAlign: 'center'
             }}>{title}</h1>
+            <div style={{
+                display: 'flex',
+                flexFlow: 'row wrap',
+                justifyContent: 'center',
+                alignItems: 'center',
+                alignContent: 'space-around',
+                width: '75%',
+                margin: '0 auto'
+            }}>
+                {tags.map((tagName, index) => {
+                        return (
+                            <div style={{flex: '0 1 auto', margin: '0 0.3rem'}} key={index}>
+                                <Link className="tag-link" to={`/tags/${tagName.replace(/\s+/g, '_').toLowerCase()}`}>
+                                    {tagName}
+                                </Link>
+                            </div>
+                        )
+                })}
+            </div>
             <div className='blogpost'
                 dangerouslySetInnerHTML={{ __html: html }} />
 
@@ -42,6 +63,7 @@ export const query = graphql`
             html
             frontmatter {
                 title
+                tags
             }
         }
     }

@@ -31,9 +31,9 @@ const createTagPages = (createPage, posts) => {
 
     tags.forEach(tagName => {
         const posts = postsByTag[tagName]
-
+        const sanitizedTagName = tagName.replace(/\s+/g, '_').toLowerCase()
         createPage({
-            path: `/tags/${tagName}`,
+            path: `/tags/${sanitizedTagName}`,
             component: singleTagIndexTemplate,
             context: {
                 posts,

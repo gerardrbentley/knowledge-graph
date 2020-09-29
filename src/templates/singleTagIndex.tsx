@@ -25,7 +25,7 @@ const SingleTagTemplate: React.FunctionComponent<SingleTagProps> = ({ pageContex
                     {posts.map((post, index) => {
                         return (
                             <li key={index}>
-                                <Link to={post.frontmatter.path}>
+                                <Link className="blog-link" to={post.frontmatter.path}>
                                     {post.frontmatter.title}
                                 </Link>
                             </li>
