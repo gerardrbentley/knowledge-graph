@@ -16,6 +16,8 @@ exports[`Single Tag Index Page renders successfully 1`] = `
     }
   >
     <mockConstructor
+      className="tag-link"
+      data-testid="browse-by-tag"
       to="/tags"
     >
       Browse by Tag
@@ -40,6 +42,8 @@ exports[`Single Tag Index Page renders successfully 1`] = `
       }
     >
       <mockConstructor
+        className="blog-link"
+        data-testid="blog-post-0"
         to="/javascript"
       >
         Javascript
@@ -53,6 +57,8 @@ exports[`Single Tag Index Page renders successfully 1`] = `
       }
     >
       <mockConstructor
+        className="blog-link"
+        data-testid="blog-post-1"
         to="/javascript"
       >
         Javascript
@@ -66,6 +72,8 @@ exports[`Single Tag Index Page renders successfully 1`] = `
       }
     >
       <mockConstructor
+        className="blog-link"
+        data-testid="blog-post-2"
         to="/javascript"
       >
         Javascript

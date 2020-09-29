@@ -4,6 +4,7 @@ exports[`Layout renders correctly with next and prev 1`] = `
 <div>
   <input
     className="dark-mode-checkbox visually-hidden"
+    data-testid="dark-mode-input"
     defaultChecked={false}
     id="dark-mode"
     onChange={[Function]}
@@ -11,6 +12,7 @@ exports[`Layout renders correctly with next and prev 1`] = `
   />
   <div
     className="layout theme-container"
+    data-testid="theme"
   >
     <header
       className="header"
@@ -45,6 +47,7 @@ exports[`Layout renders correctly with next and prev 1`] = `
             }
           >
             <a
+              data-testid="index-link"
               href="/"
             >
               Index Page
@@ -52,6 +55,7 @@ exports[`Layout renders correctly with next and prev 1`] = `
           </div>
           <div>
             <a
+              data-testid="prev-link"
               href="/javascript"
             >
               Prev (
@@ -106,6 +110,7 @@ exports[`Layout renders correctly with next and prev 1`] = `
             }
           >
             <a
+              data-testid="other-link"
               href="/#"
             >
               Other Link
@@ -113,6 +118,7 @@ exports[`Layout renders correctly with next and prev 1`] = `
           </div>
           <div>
             <a
+              data-testid="next-link"
               href="/javascript"
             >
               Next (
@@ -128,19 +134,9 @@ exports[`Layout renders correctly with next and prev 1`] = `
             }
           }
         >
-          <span
-            className="block"
-            style={
-              Object {
-                "marginLeft": "auto",
-                "marginRight": "auto",
-              }
-            }
-          >
-            Dark?
-          </span>
           <label
             className="dark-mode-label switch"
+            data-testid="dark-mode-switch"
             htmlFor="dark-mode"
           >
             <span
@@ -221,6 +217,7 @@ exports[`Layout renders correctly without next or prev 1`] = `
 <div>
   <input
     className="dark-mode-checkbox visually-hidden"
+    data-testid="dark-mode-input"
     defaultChecked={false}
     id="dark-mode"
     onChange={[Function]}
@@ -228,6 +225,7 @@ exports[`Layout renders correctly without next or prev 1`] = `
   />
   <div
     className="layout theme-container"
+    data-testid="theme"
   >
     <header
       className="header"
@@ -262,6 +260,7 @@ exports[`Layout renders correctly without next or prev 1`] = `
             }
           >
             <a
+              data-testid="index-link"
               href="/"
             >
               Index Page
@@ -315,6 +314,7 @@ exports[`Layout renders correctly without next or prev 1`] = `
             }
           >
             <a
+              data-testid="other-link"
               href="/#"
             >
               Other Link
@@ -329,19 +329,9 @@ exports[`Layout renders correctly without next or prev 1`] = `
             }
           }
         >
-          <span
-            className="block"
-            style={
-              Object {
-                "marginLeft": "auto",
-                "marginRight": "auto",
-              }
-            }
-          >
-            Dark?
-          </span>
           <label
             className="dark-mode-label switch"
+            data-testid="dark-mode-switch"
             htmlFor="dark-mode"
           >
             <span

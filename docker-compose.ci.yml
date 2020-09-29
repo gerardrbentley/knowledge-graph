@@ -1,0 +1,4 @@
+version: '3'
+services:
+  frontend:
+    image: "gerardrbentley/gar-brain"

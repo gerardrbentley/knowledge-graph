@@ -1,7 +1,63 @@
 version: 2.1
+jobs:
+    unit-test:
+        docker:
+            - image: cimg/node:12.18.4
+        steps:
+            - checkout
+            - run:
+                name: Setup NPM env
+                command: |
+                    npm install
+            - run:
+                name: Run unit tests
+                command: |
+                    npm run test
+    build:
+        docker:
+            - image: cimg/base:stable-18.04
+        steps:
+            - checkout
+            - setup_remote_docker
+            - run:
+                name: Build Docker Image
+                command: |
+                    echo 'export TAG=0.1.${CIRCLE_BUILD_NUM}' >> $BASH_ENV
+                    docker build -t gerardrbentley/gar-brain:$TAG .
+                # command: |
+                #     echo 'export TAG=0.1.${CIRCLE_BUILD_NUM}' >> $BASH_ENV
+                #     docker build -t gerardrbentley/gar-brain:$TAG .
+                #     echo $DOCKERHUB_PASS | docker login -u $DOCKERHUB_USERNAME --password-stdin
+                #     docker push gerardrbentley/gar-brain:$TAG
+            - run:
+                name: Archive Docker Tar file
+                command: docker save -o image.tar gerardrbentley/gar-brain
+            - persist_to_workspace:
+                root: .
+                paths:
+                    - ./image.tar
+    test-chrome:
+        docker:
+            - image: cimg/base:stable-18.04
+        steps:
+            - attach_workspace:
+                at: /tmp/workspace
+            - setup_remote_docker
+            - run:
+                name: Load archived Docker image
+                command: docker load -i /tmp/workspace/image.tar
+            - run: 
+                name: Pull Cypress Included Image
+                command: docker pull cypress/included:5.2.0
+            - run: 
+                name: Run E2E Chrome test
+                command: docker-compose -f docker-compose.yml -f docker-compose.ci.yml run e2e-chrome
 orbs:
     heroku: circleci/heroku@1.2.2
 workflows:
     heroku_deploy:
         jobs:
+            - unit-test
+            - build
+            - test-chrome
             - heroku/deploy-via-git

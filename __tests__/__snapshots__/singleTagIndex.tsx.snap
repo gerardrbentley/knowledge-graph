@@ -13,6 +13,7 @@ exports[`Single Tag Index Page renders successfully 1`] = `
     <ul>
       <li>
         <mockConstructor
+          className="blog-link"
           to="/javascript"
         >
           Javascript
@@ -20,6 +21,7 @@ exports[`Single Tag Index Page renders successfully 1`] = `
       </li>
       <li>
         <mockConstructor
+          className="blog-link"
           to="/javascript"
         >
           Javascript
@@ -27,6 +29,7 @@ exports[`Single Tag Index Page renders successfully 1`] = `
       </li>
       <li>
         <mockConstructor
+          className="blog-link"
           to="/javascript"
         >
           Javascript

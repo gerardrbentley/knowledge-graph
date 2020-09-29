@@ -57,6 +57,80 @@ exports[`Blog Page renders successfully 1`] = `
     Javascript
   </h1>
   <div
+    style={
+      Object {
+        "alignContent": "space-around",
+        "alignItems": "center",
+        "display": "flex",
+        "flexFlow": "row wrap",
+        "justifyContent": "center",
+        "margin": "0 auto",
+        "width": "75%",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "flex": "0 1 auto",
+          "margin": "0 0.3rem",
+        }
+      }
+    >
+      <mockConstructor
+        className="tag-link"
+        to="/tags/javascript"
+      >
+        Javascript
+      </mockConstructor>
+    </div>
+    <div
+      style={
+        Object {
+          "flex": "0 1 auto",
+          "margin": "0 0.3rem",
+        }
+      }
+    >
+      <mockConstructor
+        className="tag-link"
+        to="/tags/backend"
+      >
+        Backend
+      </mockConstructor>
+    </div>
+    <div
+      style={
+        Object {
+          "flex": "0 1 auto",
+          "margin": "0 0.3rem",
+        }
+      }
+    >
+      <mockConstructor
+        className="tag-link"
+        to="/tags/frontend"
+      >
+        Frontend
+      </mockConstructor>
+    </div>
+    <div
+      style={
+        Object {
+          "flex": "0 1 auto",
+          "margin": "0 0.3rem",
+        }
+      }
+    >
+      <mockConstructor
+        className="tag-link"
+        to="/tags/web"
+      >
+        Web
+      </mockConstructor>
+    </div>
+  </div>
+  <div
     className="blogpost"
     dangerouslySetInnerHTML={
       Object {

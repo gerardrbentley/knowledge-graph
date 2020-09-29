@@ -9,7 +9,8 @@ exports[`Single Tag Index Page renders successfully 1`] = `
     <ul>
       <li>
         <mockConstructor
-          to="Web"
+          className="tag-link"
+          to="web"
         >
           Web
         </mockConstructor>
@@ -25,7 +26,8 @@ exports[`Single Tag Index Page renders successfully 1`] = `
       </li>
       <li>
         <mockConstructor
-          to="Frontend"
+          className="tag-link"
+          to="frontend"
         >
           Frontend
         </mockConstructor>
