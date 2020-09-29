@@ -13,6 +13,10 @@
 
 5. Testing and Code Coverage with Jest
 
+6. Darkmode CSS + localstorage
+
+7. CI/CD
+
 ## 🚀 Run Local
 
 1.  **Clone Repo**
@@ -50,7 +54,7 @@ They are organized with one-directory each, containing only a file called `index
 
 Each `index.md` File contains the following frontmatter at the beginning of the file (with relevant substitutions for $ Variables):
 
-```
+```md
 ---
 path: "/$URL_NAME"
 date: "2020-09-25"

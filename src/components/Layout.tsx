@@ -82,10 +82,6 @@ export const PureLayout: React.FunctionComponent<PureLayoutProps> = ({ data, nex
             <div style={{
                 width: '10%',
             }}>
-                <span className="block" style={{
-                    marginLeft: 'auto',
-                    marginRight: 'auto',
-                }}>Dark?</span>
                 <label className="dark-mode-label switch" htmlFor="dark-mode"><span className="slider round"></span></label>
             </div>
         </div>
