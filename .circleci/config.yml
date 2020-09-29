@@ -58,6 +58,24 @@ workflows:
     heroku_deploy:
         jobs:
             - unit-test
+                filters:
+                    branches:
+                        only: main
             - build
+                requires:
+                    - unit-test
+                filters:
+                    branches:
+                        only: main
             - test-chrome
+                requires:
+                    - build
+                filters:
+                    branches:
+                        only: main
             - heroku/deploy-via-git
+                requires:
+                    - test-chrome
+                filters:
+                    branches:
+                        only: main
