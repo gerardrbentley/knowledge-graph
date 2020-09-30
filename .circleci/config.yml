@@ -94,6 +94,10 @@ workflows:
                 filters:
                     branches:
                         only: main
+            - build-test:
+                filters:
+                    branches:
+                        only: main
             - build:
                 requires:
                     - unit-test
