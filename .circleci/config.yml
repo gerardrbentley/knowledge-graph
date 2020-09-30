@@ -37,8 +37,8 @@ jobs:
                 paths:
                     - ./image.tar
     test-chrome:
-        docker:
-            - image: cimg/base:stable-18.04
+        machine:
+            image: ubuntu-1604:202007-01
         steps:
             - checkout
             - attach_workspace:
