@@ -25,7 +25,7 @@ const IndexPage: React.FunctionComponent<IndexProps> = ({ data }) => {
         marginBottom: '1rem',
         fontFamily: 'sans-serif'
       }}>
-        <Link className="tag-link" data-testid="browse-by-tag" to={'/tags'}>Browse by Tag</Link>
+        <Link data-testid="browse-by-tag" to={'/tags'}>Browse by Tag</Link>
       </div>
       <hr />
       <div style={{

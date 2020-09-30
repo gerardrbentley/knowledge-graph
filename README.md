@@ -11,11 +11,13 @@
 
 4. Typescript
 
-5. Testing and Code Coverage with Jest
+5. Unit Testing and Code Coverage with Jest
 
 6. Darkmode CSS + localstorage
 
-7. CI/CD
+7. E2E Testing with Cypress
+
+8. CI/CD
 
 ## 🚀 Run Local
 
@@ -24,7 +26,7 @@
     Download relevant code:
 
     ```shell
-    git clone knowledge git@gitlab.com:gerardrbentley/knowledge-graph.git
+    git clone git@gitlab.com:gerardrbentley/knowledge-graph.git knowledge
     ``` 
 
 1.  **Start developing.**
@@ -70,7 +72,7 @@ Simple Markdown links for now:
 
 ```
 # In a Markdown file
-[Other Topic](/other_topic)
+[Other Topic](other_topic)
 ```
 Represents a link with "Other Topic" as clickable text that leads to the page `0.0.0.0:8000/other_topic`
 
@@ -82,7 +84,7 @@ Calling the following will run Unit Tests and a Code Coverage report for all sou
 npm run test
 ```
 
-Calling the following will run End to End (e2e) Tests with Cypress
+Calling the following will run End to End (e2e) Tests with Cypress and browser of choice
 
 ```shell
 docker-compose run e2e-electron
@@ -91,6 +93,14 @@ docker-compose run e2e-chrome
 # or
 docker-compose run e2e-firefox
 ```
+
+## CI / CD
+
+Linking Github account to [CircleCI](https://circleci.com/) allows use of the `.circleci/config.yml` file.
+
+When pushing new changes to the `main` branch, a pipeline will be triggered to test and deploy those changes
+
+*NOTE*: This requires relevant environment variables to be set on CircleCI, namely `HEROKU_API_KEY` and `HEROKU_APP_NAME`
 
 ## 🧐 What's inside?
 

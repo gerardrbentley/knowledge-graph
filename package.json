@@ -7,14 +7,12 @@
   "scripts": {
     "check": "tsc --noEmit",
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "develop": "gatsby develop --host 0.0.0.0",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "jest --colors",
-    "cy:open": "cypress open",
-    "test:e2e": "start-server-and-test develop http://localhost:8000 cy:open"
+    "test": "jest --colors"
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^4.2.0",

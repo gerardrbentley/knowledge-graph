@@ -8,10 +8,9 @@ import { mockMarkdownRemark } from '../__mocks__/graphql-responses'
 const renderer = new ShallowRenderer()
 
 const context = {
-    posts: {
+    postsByTag: {
         Web: Array(mockMarkdownRemark, mockMarkdownRemark, mockMarkdownRemark),
         Frontend: Array(mockMarkdownRemark, mockMarkdownRemark, mockMarkdownRemark),
-    
     },
     tags: Array('Web', 'Frontend')
 }

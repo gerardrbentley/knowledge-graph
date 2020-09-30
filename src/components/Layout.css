@@ -26,17 +26,15 @@
   --background: var(--base3);
   --soft-background: var(--base2);
   --swap-background: var(--base03);
-
   --focus: var(--blue);
   --interactive: var(--magenta);
-
   color: var(--text-primary);
   background-color: var(--soft-background);
   width: 100%;
   height: 100%;
 }
 
-.dark-mode-checkbox:checked ~ .theme-container {
+.dark-mode-checkbox:checked~.theme-container {
   /* Override the default theme */
   --text-emphasis: var(--base1);
   --text-primary: var(--base0);
@@ -44,7 +42,6 @@
   --background: var(--base02);
   --soft-background: var(--base03);
   --swap-background: var(--base3);
-
   --focus: var(--blue);
   --interactive: var(--magenta);
 }
@@ -53,56 +50,52 @@
   margin-bottom: 1em;
 }
 
-:focus,
-.dark-mode-checkbox:focus ~ .theme-container .dark-mode-label {
+:focus, .dark-mode-checkbox:focus~.theme-container .dark-mode-label {
   outline: 2px solid var(--focus);
 }
 
-.dark-mode-checkbox:checked ~ .theme-container .dark-mode-label .slider {
+.dark-mode-checkbox:checked~.theme-container .dark-mode-label .slider {
   background-color: var(--cyan);
 }
 
-.dark-mode-checkbox:checked ~ .theme-container .dark-mode-label .slider {
+.dark-mode-checkbox:checked~.theme-container .dark-mode-label .slider {
   box-shadow: 0 0 1px var(--cyan);
 }
 
-.dark-mode-checkbox:checked ~ .theme-container .dark-mode-label .slider:before {
+.dark-mode-checkbox:checked~.theme-container .dark-mode-label .slider:before {
   -webkit-transform: translateX(22px);
   -ms-transform: translateX(22px);
   transform: translateX(22px);
 }
 
-aside,
-details,
-figcaption,
-figure,
-hgroup,
-nav,
-section,
-summary {
+aside, details, figcaption, figure, hgroup, nav, section, summary {
   display: block;
 }
-audio,
-canvas,
-video {
+
+audio, canvas, video {
   display: inline-block;
 }
+
 audio:not([controls]) {
   display: none;
   height: 0;
 }
+
 [hidden] {
   display: none;
 }
+
 html {
   font-family: Arial, Helvetica, sans-serif;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   background-color: var(--base03);
 }
+
 body {
   margin: 0 auto;
 }
+
 .header {
   color: var(--text-emphasis);
   border-bottom: var(--text-emphasis);
@@ -110,6 +103,7 @@ body {
   margin-bottom: 0.7rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
+
 .main {
   width: 85%;
   max-width: 1024px;
@@ -118,6 +112,7 @@ body {
   background-color: var(--background);
   box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.1), -10px 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
+
 .footer {
   color: var(--text-emphasis);
   padding: 1rem 2rem;
@@ -129,6 +124,18 @@ body {
 a {
   color: var(--cyan);
 }
+
+a:active, a:hover {
+  outline: 0;
+  color: var(--magenta) !important;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+a:visited {
+  color: var(--magenta);
+}
+
 a:focus {
   outline: thin dotted;
   font-size: medium;
@@ -136,28 +143,32 @@ a:focus {
   color: var(--magenta) !important;
   transition: all 0.3s;
 }
-a:active,
-a:hover {
-    outline: 0;
-    color: var(--magenta) !important;
-    font-weight: 600;
-    transition: all 0.3s;
+
+.tag-link {
+  text-align: center;
+  border-radius: .3rem;
+  padding: 0.2rem 0.4rem;
+  margin: 0.5rem 0.5rem;
+  text-decoration: none;
+  opacity: 90%;
+  box-shadow: 0.05rem 0.05rem 0.5rem var(--text-secondary);
 }
-a:visited {
-  color: var(--magenta);
+
+.post-title {
+  text-align: center;
+  margin-bottom: 0.9rem;
 }
 
 h1 {
   color: var(--violet);
   margin-bottom: 0.3rem;
 }
+
 h2 {
   color: var(--blue);
 }
-h3,
-h4,
-h5,
-h6 {
+
+h3, h4, h5, h6 {
   color: var(--cyan);
 }
 
@@ -170,8 +181,8 @@ table, th, td {
   border: 1px solid var(--text-emphasis);
 }
 
-
 /* Rounded sliders */
+
 .slider.round {
   border-radius: 38px;
 }
@@ -188,6 +199,7 @@ Source: https://github.com/h5bp/html5-boilerplate
 Hide only visually, but have it available for screen readers:
 https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
 */
+
 .visually-hidden {
   position: absolute;
   overflow: hidden;
@@ -197,9 +209,9 @@ https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
   margin: -1px;
   padding: 0;
   border: 0;
-  white-space: nowrap; /* 1. */
+  white-space: nowrap;
+  /* 1. */
 }
-
 
 .switch {
   position: relative;
@@ -238,195 +250,26 @@ https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
   transition: .4s;
 }
 
+
+.gatsby-highlight {
+  background-color: var(--background);
+  border-radius: 0.3em;
+  margin: 0.5em 0;
+  padding: 1em;
+  overflow: auto;
+}
+
+.gatsby-highlight pre[class*="language-"].line-numbers {
+  padding: 0;
+  padding-left: 2.8em;
+  overflow: auto;
+}
+
 /* PrismJS 1.21.0
 https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+clike+javascript+bash+java+json+json5+python+jsx+tsx+typescript&plugins=show-language+toolbar+copy-to-clipboard */
+
 /**
  * prism.js tomorrow night eighties for JavaScript, CoffeeScript, CSS and HTML
  * Based on https://github.com/chriskempson/tomorrow-theme
  * @author Rose Pritchard
  */
-
- code[class*="language-"],
- pre[class*="language-"] {
-   color: #ccc;
-   background: none;
-   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-   font-size: 1em;
-   text-align: left;
-   white-space: pre;
-   word-spacing: normal;
-   word-break: normal;
-   word-wrap: normal;
-   line-height: 1.5;
- 
-   -moz-tab-size: 4;
-   -o-tab-size: 4;
-   tab-size: 4;
- 
-   -webkit-hyphens: none;
-   -moz-hyphens: none;
-   -ms-hyphens: none;
-   hyphens: none;
- 
- }
- 
- /* Code blocks */
- pre[class*="language-"] {
-   padding: 1em;
-   margin: .5em 0;
-   overflow: auto;
-   box-shadow: 0.05rem 0.05rem 0.5rem var(--text-secondary);
- }
- 
- :not(pre) > code[class*="language-"],
- pre[class*="language-"] {
-   background: #2d2d2d;
- }
- 
- /* Inline code */
- :not(pre) > code[class*="language-"] {
-   padding: .1em .3em;
-   border-radius: .3em;
-   white-space: normal;
- }
- 
- .token.comment,
- .token.block-comment,
- .token.prolog,
- .token.doctype,
- .token.cdata {
-   color: #999;
- }
- 
- .token.punctuation {
-   color: #ccc;
- }
- 
- .token.tag,
- .token.attr-name,
- .token.namespace,
- .token.deleted {
-   color: #e2777a;
- }
- 
- .token.function-name {
-   color: #6196cc;
- }
- 
- .token.boolean,
- .token.number,
- .token.function {
-   color: #f08d49;
- }
- 
- .token.property,
- .token.class-name,
- .token.constant,
- .token.symbol {
-   color: #f8c555;
- }
- 
- .token.selector,
- .token.important,
- .token.atrule,
- .token.keyword,
- .token.builtin {
-   color: #cc99cd;
- }
- 
- .token.string,
- .token.char,
- .token.attr-value,
- .token.regex,
- .token.variable {
-   color: #7ec699;
- }
- 
- .token.operator,
- .token.entity,
- .token.url {
-   color: #67cdcc;
- }
- 
- .token.important,
- .token.bold {
-   font-weight: bold;
- }
- .token.italic {
-   font-style: italic;
- }
- 
- .token.entity {
-   cursor: help;
- }
- 
- .token.inserted {
-   color: green;
- }
- 
- div.code-toolbar {
-   position: relative;
- }
- 
- div.code-toolbar > .toolbar {
-   position: absolute;
-   top: .3em;
-   right: .2em;
-   transition: opacity 0.3s ease-in-out;
-   opacity: 0;
- }
- 
- div.code-toolbar:hover > .toolbar {
-   opacity: 1;
- }
- 
- /* Separate line b/c rules are thrown out if selector is invalid.
-    IE11 and old Edge versions don't support :focus-within. */
- div.code-toolbar:focus-within > .toolbar {
-   opacity: 1;
- }
- 
- div.code-toolbar > .toolbar .toolbar-item {
-   display: inline-block;
- }
- 
- div.code-toolbar > .toolbar a {
-   cursor: pointer;
- }
- 
- div.code-toolbar > .toolbar button {
-   background: none;
-   border: 0;
-   color: inherit;
-   font: inherit;
-   line-height: normal;
-   overflow: visible;
-   padding: 0;
-   -webkit-user-select: none; /* for button */
-   -moz-user-select: none;
-   -ms-user-select: none;
- }
- 
- div.code-toolbar > .toolbar a,
- div.code-toolbar > .toolbar button,
- div.code-toolbar > .toolbar span {
-   color: #bbb;
-   font-size: .8em;
-   padding: 0 .5em;
-   background: #f5f2f0;
-   background: rgba(224, 224, 224, 0.2);
-   box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
-   border-radius: .5em;
- }
- 
- div.code-toolbar > .toolbar a:hover,
- div.code-toolbar > .toolbar a:focus,
- div.code-toolbar > .toolbar button:hover,
- div.code-toolbar > .toolbar button:focus,
- div.code-toolbar > .toolbar span:hover,
- div.code-toolbar > .toolbar span:focus {
-   color: inherit;
-   text-decoration: none;
- }
- 
- 

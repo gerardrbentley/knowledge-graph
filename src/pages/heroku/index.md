@@ -1,6 +1,6 @@
 ---
 path: "/heroku"
-date: "2020-09-30"
+date: "2020-09-27"
 title: "Heroku"
 tags: ['Heroku']
 excerpt: "Notes on Heroku"

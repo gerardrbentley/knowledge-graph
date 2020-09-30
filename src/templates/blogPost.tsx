@@ -5,6 +5,7 @@ import Layout from '../components/Layout'
 
 import { MarkdownRemark } from '../types'
 import SEO from '../components/SEO'
+import { TagLink } from '../components/TagLink'
 
 export type PostProps = {
     data: {
@@ -28,24 +29,21 @@ const Template: React.FunctionComponent<PostProps> = ({ data, pageContext }) => 
         <Layout next={next} prev={prev}>
             <SEO title={title}
                 description={description} />
-            <h1 style={{
-                textAlign: 'center'
-            }}>{title}</h1>
+            <h1 className="post-title">{title}</h1>
             <div style={{
                 display: 'flex',
                 flexFlow: 'row wrap',
                 justifyContent: 'center',
                 alignItems: 'center',
-                alignContent: 'space-around',
+                alignContent: 'space-bewteen',
                 width: '75%',
+                height: 'auto',
                 margin: '0 auto'
             }}>
                 {tags.map((tagName, index) => {
                         return (
-                            <div style={{flex: '0 1 auto', margin: '0 0.3rem'}} key={index}>
-                                <Link className="tag-link" to={`/tags/${tagName.replace(/\s+/g, '_').toLowerCase()}`}>
-                                    {tagName}
-                                </Link>
+                            <div style={{flex: '1', margin: '0.5rem 0.5rem', textAlign: 'center'}} key={index}>
+                                <TagLink tagName={tagName}></TagLink>
                             </div>
                         )
                 })}

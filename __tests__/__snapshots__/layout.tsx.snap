@@ -111,9 +111,9 @@ exports[`Layout renders correctly with next and prev 1`] = `
           >
             <a
               data-testid="other-link"
-              href="/#"
+              href="https://github.com/gerardrbentley/knowledge-graph"
             >
-              Other Link
+              Source Code
             </a>
           </div>
           <div>
@@ -189,7 +189,11 @@ exports[`Layout renders correctly with next and prev 1`] = `
             © 
             2020
             , Built by 
-            Gerard R. Bentley
+            <a
+              href="https://gerardbentley.com"
+            >
+              Gerard R. Bentley
+            </a>
              Using 
             <a
               href="https://www.gatsbyjs.org"
@@ -315,9 +319,9 @@ exports[`Layout renders correctly without next or prev 1`] = `
           >
             <a
               data-testid="other-link"
-              href="/#"
+              href="https://github.com/gerardrbentley/knowledge-graph"
             >
-              Other Link
+              Source Code
             </a>
           </div>
           <div />
@@ -376,7 +380,11 @@ exports[`Layout renders correctly without next or prev 1`] = `
             © 
             2020
             , Built by 
-            Gerard R. Bentley
+            <a
+              href="https://gerardbentley.com"
+            >
+              Gerard R. Bentley
+            </a>
              Using 
             <a
               href="https://www.gatsbyjs.org"

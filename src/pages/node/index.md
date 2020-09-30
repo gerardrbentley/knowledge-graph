@@ -2,7 +2,7 @@
 path: "/node"
 date: "2020-09-20"
 title: "Node JS"
-tags: ['Node','Backend','Fullstack','Web']
+tags: ['Node','Backend','Full Stack','Web']
 excerpt: "Notes on Node JS"
 ---
 

@@ -1,6 +1,6 @@
 ---
 path: "/circleci"
-date: "2020-09-29"
+date: "2020-09-30"
 title: "CircleCI"
 tags: ['CircleCI']
 excerpt: "Notes on CircleCI"
@@ -8,9 +8,9 @@ excerpt: "Notes on CircleCI"
 
 CircleCI is a very interesting topic!
 
-It is a platform / product for [Continuous Integration and Continuous Delivery](/ci_cd).
+It is a platform / product for [Continuous Integration and Continuous Delivery](ci_cd).
 
-It integrates with Github (and Github Enterprise) and Bitbucket. (i.e. Not compatible with [Gitlab](/gitlab), which has its own workflow)
+It integrates with Github (and Github Enterprise) and Bitbucket. (i.e. Not compatible with [Gitlab](gitlab), which has its own workflow)
 
 # Setup
 

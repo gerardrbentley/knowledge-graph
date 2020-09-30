@@ -26,7 +26,7 @@ describe("Blog Page", () => {
             const tree = renderer.getRenderOutput()
             expect(tree.type).toBe(Layout)
             expect(tree.props.children).toContainEqual(<SEO title={`${mockMarkdownRemark.frontmatter.title}`} description={`${mockMarkdownRemark.frontmatter.excerpt || mockMarkdownRemark.excerpt}`} />)
-            expect(tree.props.children).toContainEqual(<h1 style={{"textAlign": "center"}}>{`${mockMarkdownRemark.frontmatter.title}`}</h1>)
+            expect(tree.props.children).toContainEqual(<h1 className="post-title">{`${mockMarkdownRemark.frontmatter.title}`}</h1>)
         })
 
 })

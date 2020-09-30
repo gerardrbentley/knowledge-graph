@@ -121,11 +121,13 @@ Using Jest is pretty well supported with Gatsby and [React](/react);
 ## Setup
 
 1. Install testing dependencies for react / jest
+
 ```shell
 npm install --save-dev jest babel-jest react-test-renderer babel-preset-gatsby identity-obj-proxy
 ```
 
-1. `jest.config.js` file
+2. `jest.config.js` file
+
 ```js
 module.exports = {
     transform: {
@@ -147,7 +149,8 @@ module.exports = {
 }
 ```
 
-1. `jest-preprocess.js`
+3. `jest-preprocess.js`
+
 ```js
 const babelOptions = {
   presets: ["babel-preset-gatsby"],
@@ -156,7 +159,8 @@ const babelOptions = {
 module.exports = require("babel-jest").createTransformer(babelOptions)
 ```
 
-1. `loadershim.js`
+4. `loadershim.js`
+
 ```js
 global.___loader = {
   enqueue: jest.fn(),
@@ -272,7 +276,7 @@ export const Layout: React.FunctionComponent<LayoutProps> = (props) => {
 export default Layout
 ```
 
-1. Tests `__tests__/layout.ts`
+2. Tests `__tests__/layout.ts`
 
 ```ts
 import React from 'react'

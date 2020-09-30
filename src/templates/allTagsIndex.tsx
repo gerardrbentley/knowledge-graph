@@ -1,13 +1,13 @@
 import React, { FunctionComponent } from 'react'
-import { Link } from 'gatsby'
 
 import Layout from '../components/Layout'
 import { MarkdownRemark } from '../types';
 import SEO from '../components/SEO';
+import { TagLink } from '../components/TagLink';
 
 interface AllTagsProps {
     pageContext: {
-        posts: {
+        postsByTag: {
             [key: string]: Array<MarkdownRemark>
         }
         tags: Array<string>
@@ -16,24 +16,23 @@ interface AllTagsProps {
 
 const AllTagsTemplate: FunctionComponent<AllTagsProps> = ({ pageContext }) => {
     console.log(pageContext)
-    const { tags, posts } = pageContext
+    const { tags, postsByTag } = pageContext
     return (
         <Layout>
             <SEO title="Topic Tags" />
-            <div>
-                <ul>
-                    {tags.map((tagName, index) => {
+            <div style={{
+                width: '75%',
+                margin: '0 auto',
+                display: 'flex',
+                flexFlow: "row wrap",
+                alignItems: 'center',
+                justifyContent: 'space-between'
+            }}>
+                    {tags.map((tagName) => {
                         return (
-                            <li key={index}>
-                                <Link className="tag-link" to={`${tagName.replace(/\s+/g, '_').toLowerCase()}`}>
-                                    {tagName}
-                                </Link>
-
-                                <span style={{ paddingLeft: '2rem' }}>{posts[tagName].length}</span>
-                            </li>
+                                <TagLink tagName={tagName} number={postsByTag[tagName].length}></TagLink>
                         )
                     })}
-                </ul>
             </div>
         </Layout>
     )

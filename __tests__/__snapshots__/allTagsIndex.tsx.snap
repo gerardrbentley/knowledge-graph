@@ -5,43 +5,26 @@ exports[`Single Tag Index Page renders successfully 1`] = `
   <SEO
     title="Topic Tags"
   />
-  <div>
-    <ul>
-      <li>
-        <mockConstructor
-          className="tag-link"
-          to="web"
-        >
-          Web
-        </mockConstructor>
-        <span
-          style={
-            Object {
-              "paddingLeft": "2rem",
-            }
-          }
-        >
-          3
-        </span>
-      </li>
-      <li>
-        <mockConstructor
-          className="tag-link"
-          to="frontend"
-        >
-          Frontend
-        </mockConstructor>
-        <span
-          style={
-            Object {
-              "paddingLeft": "2rem",
-            }
-          }
-        >
-          3
-        </span>
-      </li>
-    </ul>
+  <div
+    style={
+      Object {
+        "alignItems": "center",
+        "display": "flex",
+        "flexFlow": "row wrap",
+        "justifyContent": "space-between",
+        "margin": "0 auto",
+        "width": "75%",
+      }
+    }
+  >
+    <TagLink
+      number={3}
+      tagName="Web"
+    />
+    <TagLink
+      number={3}
+      tagName="Frontend"
+    />
   </div>
 </Layout>
 `;

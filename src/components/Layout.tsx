@@ -86,7 +86,7 @@ export const PureLayout: React.FunctionComponent<PureLayoutProps> = ({ data, nex
                 <div style={{
                     marginBottom: '1rem'
                 }}>
-                    <a data-testid="other-link" href="/#">Other Link</a>
+                    <a data-testid="other-link" href="https://github.com/gerardrbentley/knowledge-graph">Source Code</a>
                 </div>
                 <div>
                     {next && <Link data-testid="next-link" to={next.frontmatter.path}>Next ({next.frontmatter.title})</Link>}
@@ -119,7 +119,7 @@ export const PureLayout: React.FunctionComponent<PureLayoutProps> = ({ data, nex
                 textAlign: 'center'
             }}>
                 <span>
-                    © {year}, Built by {author} Using <a href="https://www.gatsbyjs.org">GatsbyJS</a>
+                    © {year}, Built by <a href="https://gerardbentley.com">{author}</a> Using <a href="https://www.gatsbyjs.org">GatsbyJS</a>
                 </span>
             </div>
             <div>

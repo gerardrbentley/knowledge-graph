@@ -48,21 +48,18 @@ exports[`Blog Page renders successfully 1`] = `
     title="Javascript"
   />
   <h1
-    style={
-      Object {
-        "textAlign": "center",
-      }
-    }
+    className="post-title"
   >
     Javascript
   </h1>
   <div
     style={
       Object {
-        "alignContent": "space-around",
+        "alignContent": "space-bewteen",
         "alignItems": "center",
         "display": "flex",
         "flexFlow": "row wrap",
+        "height": "auto",
         "justifyContent": "center",
         "margin": "0 auto",
         "width": "75%",
@@ -72,62 +69,54 @@ exports[`Blog Page renders successfully 1`] = `
     <div
       style={
         Object {
-          "flex": "0 1 auto",
-          "margin": "0 0.3rem",
+          "flex": "1",
+          "margin": "0.5rem 0.5rem",
+          "textAlign": "center",
         }
       }
     >
-      <mockConstructor
-        className="tag-link"
-        to="/tags/javascript"
-      >
-        Javascript
-      </mockConstructor>
+      <TagLink
+        tagName="Javascript"
+      />
     </div>
     <div
       style={
         Object {
-          "flex": "0 1 auto",
-          "margin": "0 0.3rem",
+          "flex": "1",
+          "margin": "0.5rem 0.5rem",
+          "textAlign": "center",
         }
       }
     >
-      <mockConstructor
-        className="tag-link"
-        to="/tags/backend"
-      >
-        Backend
-      </mockConstructor>
+      <TagLink
+        tagName="Backend"
+      />
     </div>
     <div
       style={
         Object {
-          "flex": "0 1 auto",
-          "margin": "0 0.3rem",
+          "flex": "1",
+          "margin": "0.5rem 0.5rem",
+          "textAlign": "center",
         }
       }
     >
-      <mockConstructor
-        className="tag-link"
-        to="/tags/frontend"
-      >
-        Frontend
-      </mockConstructor>
+      <TagLink
+        tagName="Frontend"
+      />
     </div>
     <div
       style={
         Object {
-          "flex": "0 1 auto",
-          "margin": "0 0.3rem",
+          "flex": "1",
+          "margin": "0.5rem 0.5rem",
+          "textAlign": "center",
         }
       }
     >
-      <mockConstructor
-        className="tag-link"
-        to="/tags/web"
-      >
-        Web
-      </mockConstructor>
+      <TagLink
+        tagName="Web"
+      />
     </div>
   </div>
   <div

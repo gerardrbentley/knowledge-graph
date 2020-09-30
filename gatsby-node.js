@@ -25,7 +25,7 @@ const createTagPages = (createPage, posts) => {
         component: allTagsIndexTemplate,
         context: {
             tags: tags.sort(),
-            posts: postsByTag
+            postsByTag: postsByTag
         }
     })
 
