@@ -2,3 +2,42 @@ version: '3'
 services:
   frontend:
     image: "gerardrbentley/gar-brain"
+
+  # this container will run Cypress test using built-in Electron browser
+  e2e-electron:
+    image: "temp-ci/cypress"
+    # mount the host directory cypress and the file cypress.json as
+    # volumes within the container "e2e" container
+    #
+    # this means that:
+    #  1. anything that Cypress writes to these folders (e.g., screenshots,
+    #     videos) appears also on the Docker host's filesystem
+    #  2. any change that the developer applies to Cypress files on the host
+    #     machine immediately takes effect within the e2e container (no docker
+    #     rebuild required).
+    network_mode: "service:frontend"
+    depends_on: 
+        - frontend
+
+  # this container will run Cypress test using Chrome browser
+  e2e-chrome:
+    image: "temp-ci/cypress"
+    # container_name: cypress
+    # "cypress/included" images have entrypoint set to globally installed cypress
+    # so the command can simply add any arguments
+    command: "--browser chrome"
+    network_mode: "service:frontend"
+    depends_on: 
+        - frontend
+
+  # this container will run Cypress test using Firefox browser
+  # note that both Chrome and Firefox browsers were pre-installed in the Docker image
+  e2e-firefox:
+    image: "temp-ci/cypress"
+    command: "--browser firefox --config video=false"
+    # if you want to debug FF run, pass DEBUG variable like
+    environment:
+      - DEBUG=cypress:server:browsers:firefox-util,cypress:server:util:process_profiler
+    network_mode: "service:frontend"
+    depends_on: 
+        - frontend

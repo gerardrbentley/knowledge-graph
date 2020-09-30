@@ -32,10 +32,26 @@ jobs:
             - run:
                 name: Archive Docker Tar file
                 command: docker save -o image.tar gerardrbentley/gar-brain
+            - run:
+                name: Build Cypress Tester Image
+                command: |
+                    echo 'export TAG=0.1.${CIRCLE_BUILD_NUM}' >> $BASH_ENV
+                    docker build -t temp-ci/cypress -f Dockerfile.cypress .
+                # command: |
+                #     echo 'export TAG=0.1.${CIRCLE_BUILD_NUM}' >> $BASH_ENV
+                #     docker build -t gerardrbentley/gar-brain:$TAG .
+                #     echo $DOCKERHUB_PASS | docker login -u $DOCKERHUB_USERNAME --password-stdin
+                #     docker push gerardrbentley/gar-brain:$TAG
+            - run:
+                name: Archive Docker Tar files
+                command: |
+                    docker save -o image.tar gerardrbentley/gar-brain
+                    docker save -o image_cypress.tar temp-ci/cypress
             - persist_to_workspace:
                 root: .
                 paths:
                     - ./image.tar
+                    - ./image_cypress.tar
     test-chrome:
         machine:
             image: ubuntu-1604:202007-01
@@ -45,14 +61,16 @@ jobs:
                 at: /tmp/workspace
             - setup_remote_docker
             - run:
-                name: Load archived Docker image
-                command: docker load -i /tmp/workspace/image.tar
-            - run: 
-                name: Pull Cypress Included Image
-                command: docker pull cypress/included:5.2.0
+                name: Load archived Docker images
+                command: |
+                    docker load -i /tmp/workspace/image.tar
+                    docker load -i /tmp/workspace/image_cypress.tar
+            # - run: 
+            #     name: Pull Cypress Included Image
+            #     command: docker pull cypress/included:5.2.0
             - run: 
                 name: Run E2E Chrome test
-                command: docker-compose -f docker-compose.yml -f docker-compose.ci.yml run e2e-chrome
+                command: docker-compose -f docker-compose.ci.yml run e2e-chrome
 orbs:
     heroku: circleci/heroku@1.2.2
 workflows:
