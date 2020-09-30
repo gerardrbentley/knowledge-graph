@@ -67,7 +67,7 @@ jobs:
                     - ./docker-compose.ci.yml
     test-chrome:
         docker:
-            image: cimg/base:stable-18.04
+            - image: cimg/base:stable-18.04
         steps:
             - attach_workspace:
                 at: /tmp/workspace
