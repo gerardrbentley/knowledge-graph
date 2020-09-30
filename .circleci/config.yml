@@ -94,7 +94,7 @@ workflows:
                 filters:
                     branches:
                         only: main
-            - build-test:
+            - build-tests:
                 filters:
                     branches:
                         only: main
