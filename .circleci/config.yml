@@ -64,11 +64,11 @@ jobs:
                 root: .
                 paths:
                     - ./image.tar
+                    - ./docker-compose.ci.yml
     test-chrome:
-        machine:
-            image: ubuntu-1604:202007-01
+        docker:
+            image: cimg/base:stable-18.04
         steps:
-            - checkout
             - attach_workspace:
                 at: /tmp/workspace
             - setup_remote_docker
@@ -77,6 +77,8 @@ jobs:
                 command: |
                     ls -lah ./
                     echo '^^^ ls current working directory ^^^'
+                    ls -lah /tmp/workspace
+                    echo '^^^ ls /tmp/workspace ^^^'
                     docker load -i /tmp/workspace/image.tar
                     docker load -i /tmp/workspace/image_cypress.tar
             # - run: 
@@ -84,7 +86,7 @@ jobs:
             #     command: docker pull cypress/included:5.2.0
             - run: 
                 name: Run E2E Chrome test
-                command: docker-compose -f docker-compose.ci.yml run e2e-chrome
+                command: docker-compose -f /tmp/workspace/docker-compose.ci.yml run e2e-chrome
 orbs:
     heroku: circleci/heroku@1.2.2
 workflows:
@@ -99,20 +101,22 @@ workflows:
                     branches:
                         only: main
             - build:
-                requires:
-                    - unit-test
+                # requires:
+                #     - unit-test
                 filters:
                     branches:
                         only: main
             - test-chrome:
                 requires:
                     - build
+                    - build-tests
                 filters:
                     branches:
                         only: main
             - heroku/deploy-via-git:
                 requires:
                     - test-chrome
+                    - unit-test
                 filters:
                     branches:
                         only: main
